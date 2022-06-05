@@ -1,5 +1,6 @@
 module ArrayInterfaceCore
 
+using Compat
 using LinearAlgebra
 using LinearAlgebra: AbstractTriangular
 using SparseArrays
@@ -440,5 +441,7 @@ Base.@propagate_inbounds function Base.getindex(ind::TridiagonalIndex, i::Int)
         return i - (ind.nsize + ind.nsize - 1) + offsetl
     end
 end
+
+include("sliced_arrays.jl")
 
 end # module
